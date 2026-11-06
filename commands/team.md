@@ -2,7 +2,7 @@
 description: Orchestrate a task or GitHub issue using Beads (bd), Herdr (hc), Antigravity, and OpenCode
 ---
 
-You are executing the **`/team`** command.
+You are executing the **`/baton`** (or `/team`) command.
 
 Input received: `$ARGUMENTS`
 
@@ -83,7 +83,7 @@ While there are unblocked tasks in `bd ready`:
 1. Run project build and test suite (`npm test`, `cargo test`, `pytest`, etc.).
 2. If linked to a GitHub issue:
    ```bash
-   gh issue comment <number> -b "Implemented via Orkestre team orchestration. All sub-tasks completed."
+   gh issue comment <number> -b "Implemented via Baton team orchestration. All sub-tasks completed."
    ```
 3. Present an executive summary to the user:
    - What was implemented.

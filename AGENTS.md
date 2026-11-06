@@ -1,6 +1,6 @@
-# Agent Team Protocol (Orkestre)
+# Agent Team Protocol (Baton)
 
-This project uses **Orkestre** multi-agent orchestration backed by **Herdr Core (`hc`)** and **Beads (`bd`)**.
+This project uses **Baton** multi-agent orchestration backed by **Herdr Core (`hc`)** and **Beads (`bd`)**.
 
 ---
 
@@ -72,5 +72,5 @@ This project uses **Orkestre** multi-agent orchestration backed by **Herdr Core 
 4. **Epilogue:**
    - When all Beads in the epic are closed, summarize changes and update the GitHub issue:
      ```bash
-     gh issue comment <number> -b "All subtasks completed via Orkestre."
+     gh issue comment <number> -b "All subtasks completed via Baton."
      ```
