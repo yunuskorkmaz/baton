@@ -1,0 +1,19 @@
+{
+  "name": "baton",
+  "version": "1.0.0",
+  "description": "Multi-agent team orchestration using Herdr and Beads",
+  "author": {
+    "name": "Yunus Korkmaz"
+  },
+  "homepage": "https://github.com/yunuskorkmaz/baton",
+  "repository": "https://github.com/yunuskorkmaz/baton",
+  "license": "MIT",
+  "keywords": [
+    "multi-agent",
+    "orchestration",
+    "herdr",
+    "beads",
+    "team",
+    "conductor"
+  ]
+}

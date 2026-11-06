@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "baton",
+  "version": "1.0.0",
+  "description": "The Lightweight Conductor for AI Coding Teams",
+  "owner": {
+    "name": "Yunus Korkmaz"
+  },
+  "plugins": [
+    {
+      "name": "baton",
+      "version": "1.0.0",
+      "description": "Multi-agent team orchestration using Herdr and Beads",
+      "source": "./",
+      "author": {
+        "name": "Yunus Korkmaz"
+      },
+      "homepage": "https://github.com/yunuskorkmaz/baton",
+      "license": "MIT",
+      "keywords": [
+        "multi-agent",
+        "orchestration",
+        "herdr",
+        "beads",
+        "team",
+        "conductor"
+      ]
+    }
+  ]
+}

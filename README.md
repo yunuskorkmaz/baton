@@ -24,25 +24,29 @@ No uncontrolled, headless runaway background swarms. If Herdr is not running, th
 
 ---
 
-## 🚀 Quick Start (Global Installation)
+## 🔌 Native Plugin Installation (No Curl / Script Needed)
 
-Run the one-liner installer from GitHub:
+You can install Baton directly from its GitHub repository using your AI agent's native plugin manager:
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/yunuskorkmaz/baton/main/install.sh | bash
+### 1. In Claude Code (Native Plugin Marketplace)
+Directly in your Claude Code prompt:
+```text
+/plugin marketplace add yunuskorkmaz/baton
+/plugin install baton@baton
+```
+*Or via full Git URL:*
+```text
+/plugin marketplace add https://github.com/yunuskorkmaz/baton.git
 ```
 
-Or clone and install locally:
-
+### 2. In OpenCode (Native Plugin Add)
+In your terminal:
 ```bash
-git clone https://github.com/yunuskorkmaz/baton.git
-cd baton
-./install.sh
+opencode plugin add --global github:yunuskorkmaz/baton
 ```
 
-This installs:
-- Claude Code commands: `/team-init`, `/team` (and `/baton-init`, `/baton`)
-- Antigravity global skill: `baton`
+### 3. In Antigravity (Skill)
+Baton is automatically loaded from your global skills directory (`~/.gemini/config/skills/baton/`) or project-level `.agents/skills/baton/`.
 
 ---
 
@@ -82,13 +86,16 @@ or
 
 ```text
 baton/
+├── .claude-plugin/
+│   ├── marketplace.json       # Claude Code marketplace registry
+│   └── plugin.json            # Claude Code plugin manifest
+├── package.json               # OpenCode / npm plugin metadata
 ├── README.md                  # Documentation
-├── install.sh                 # Global installer script
 ├── commands/
-│   ├── team-init.md           # /team-init slash command definition
-│   ├── team.md                # /team slash command definition
-│   ├── baton-init.md          # /baton-init alias
-│   └── baton.md               # /baton alias
+│   ├── baton-init.md          # /baton-init slash command
+│   ├── baton.md               # /baton slash command
+│   ├── team-init.md           # /team-init alias
+│   └── team.md                # /team alias
 ├── skills/
 │   └── baton/
 │       └── SKILL.md           # Antigravity skill definition

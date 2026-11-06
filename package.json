@@ -1,0 +1,18 @@
+{
+  "name": "@yunuskorkmaz/baton",
+  "version": "1.0.0",
+  "description": "The Lightweight Conductor for AI Coding Teams",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yunuskorkmaz/baton.git"
+  },
+  "keywords": [
+    "claude-plugin",
+    "opencode-plugin",
+    "multi-agent",
+    "herdr",
+    "beads"
+  ],
+  "author": "Yunus Korkmaz",
+  "license": "MIT"
+}
