@@ -1,21 +1,36 @@
 #!/usr/bin/env bash
 set -e
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_RAW_URL="https://raw.githubusercontent.com/yunuskorkmaz/orkestre/main"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" 2>/dev/null && pwd || echo "")"
 
 echo "=== 🎻 Installing Orkestre Global Skills & Commands ==="
 
-# 1. Claude Code global slash commands
 CLAUDE_CMD_DIR="$HOME/.claude/commands"
+AGY_SKILL_DIR="$HOME/.gemini/config/skills/orkestre"
+
 mkdir -p "$CLAUDE_CMD_DIR"
-cp "$SCRIPT_DIR/commands/team-init.md" "$CLAUDE_CMD_DIR/team-init.md"
-cp "$SCRIPT_DIR/commands/team.md" "$CLAUDE_CMD_DIR/team.md"
+mkdir -p "$AGY_SKILL_DIR"
+
+# Helper to fetch or copy file
+install_file() {
+    local src_rel="$1"
+    local dest="$2"
+
+    if [ -n "$SCRIPT_DIR" ] && [ -f "$SCRIPT_DIR/$src_rel" ]; then
+        cp "$SCRIPT_DIR/$src_rel" "$dest"
+    else
+        curl -fsSL "$REPO_RAW_URL/$src_rel" -o "$dest"
+    fi
+}
+
+# 1. Claude Code global slash commands
+install_file "commands/team-init.md" "$CLAUDE_CMD_DIR/team-init.md"
+install_file "commands/team.md" "$CLAUDE_CMD_DIR/team.md"
 echo "✅ Installed Claude Code commands: $CLAUDE_CMD_DIR/{team-init.md,team.md}"
 
 # 2. Antigravity global skill
-AGY_SKILL_DIR="$HOME/.gemini/config/skills/orkestre"
-mkdir -p "$AGY_SKILL_DIR"
-cp "$SCRIPT_DIR/skills/orkestre/SKILL.md" "$AGY_SKILL_DIR/SKILL.md"
+install_file "skills/orkestre/SKILL.md" "$AGY_SKILL_DIR/SKILL.md"
 echo "✅ Installed Antigravity skill: $AGY_SKILL_DIR/SKILL.md"
 
 # 3. Verify Prerequisites
